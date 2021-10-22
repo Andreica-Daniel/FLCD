@@ -1,0 +1,13 @@
+max = 0
+size = input('How many numbers: ')
+for n in range(1, size):
+{
+new = input('Enter number ')
+append(numbers, new)
+}
+for n in range(1, size):
+{
+if numbers[n] > max:
+max = numbers[n]
+}
+print(max)
