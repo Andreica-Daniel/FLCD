@@ -1,18 +1,18 @@
-num = input(’Enter number’)
+num = input ( )
 prime = true
-if num > 1:
+if num > 1 :
 {
-for i in range(2, int(num/2)+1):
+for i in range ( 2 , int ( num / 2 ) + 1 ) :
 {
-if num % i == 0:
+if num % i == 0 :
 { prime = false
 break }
 }
-else:
+else :
 {
 prime = false
 }
-if prime == false:
-{ print('Number is not prime') }
-else:
-{ print('Number is prime') }
+if prime == false :
+{ print ( 0 ) }
+else :
+{ print ( 1 ) }

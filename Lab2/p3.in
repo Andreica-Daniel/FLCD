@@ -1,13 +1,13 @@
 max = 0
-size = input('How many numbers: ')
-for n in range(1, size):
+size = input ( )
+for n in range ( 1 , size ) :
 {
-new = input('Enter number ')
-append(numbers, new)
+new = input ( )
+append ( numbers , new )
 }
-for n in range(1, size):
+for n in range ( 1 , size ) :
 {
-if numbers[n] > max:
-max = numbers[n]
+if numbers [ n ] > max :
+max = numbers [ n ]
 }
-print(max)
+print ( max )

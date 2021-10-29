@@ -1,9 +1,9 @@
 a = input ( )
 b = input ( )
 c = input ( )
-if a < b and a < c :
+if a < b && a < c :
 { smallest = a }
-elif b < a and b < c :
+elif b < a || b < c :
 { smallest = b }
 else :
 { smallest = c }

@@ -1,24 +1,32 @@
-from SymbolTable import SymbolTable
-from Scanner import Scanner
+from Lab2.symbolTable import Pair
+from scanner import Scanner
 
-st = SymbolTable()
+scanner = Scanner(open("p1.in"))
 
-st.add("f")
-st.add("b")
-st.add("c")
-st.add("h")
-st.add("a")
-
-# print(st.search("f"))
-# print(st.search("b"))
-# print(st.search("c"))
-# print(st.search("h"))
-# print(st.search("a"))
-
-
-myScanner = Scanner(open("p1.in"))
-
-currentToken = myScanner.detectNextToken()
+currentToken = scanner.nextToken()
+error = 0
 while currentToken:
-    print(currentToken)
-    currentToken = myScanner.detectNextToken()
+    tokenClassified = scanner.classifyCodification(scanner.codifyToken(currentToken))
+    if tokenClassified == 'lexical error':
+        print("LEXICAL ERROR - LINE: " + str(scanner.lineNumber) + ' ,TOKEN: ' + str(scanner.tokenNumber))
+        error = 1
+    if tokenClassified == 'reserved-word' or tokenClassified == 'operator' or tokenClassified == 'separator':
+        scanner.addToPIF(tokenClassified, currentToken, -1)
+    else:
+        if tokenClassified == 'identifier' or tokenClassified == 'constant':
+            pair = Pair(currentToken, 0)
+            scanner.addToPIF(tokenClassified, currentToken, scanner.symbolTable.checkIfElementExists(pair))
+    currentToken = scanner.nextToken()
+
+f = open("ST.out", "w")
+for elem in scanner.symbolTable.getList():
+    f.write(elem.getKey() + ' ' + str(elem.getValue()) + '\n')
+f.close()
+
+f = open("PIF.out", "w")
+for elem in scanner.pif:
+    f.write(elem[0] + ' ' + elem[1].getKey() + ' ' + str(elem[1].getValue()) + '\n')
+f.close()
+
+if error == 0:
+    print("LEXICALLY CORRECT")
