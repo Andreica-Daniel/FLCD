@@ -1,6 +1,7 @@
 a = input ( )
 b = input ( )
 c = input ( )
+a1b2
 if a < b && a < c :
 { smallest = a }
 elif b < a || b < c :

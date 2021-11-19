@@ -1,3 +1,4 @@
+' string '
 num = input ( )
 prime = true
 if num > 1 :
